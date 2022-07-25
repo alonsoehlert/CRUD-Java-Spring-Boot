@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Sistema de gestão de produtos</title>
+
+<link   rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		crossorigin="anonymous">
+</head>
+<body>
+			<div class="container my-2">
+					<h1>Sistema de gestão de produtos</h1>
+					<hr>
+					<h2>Editar Produto</h2>
+					<form action="#" th:action="@{/comercial/produtos/salvar}" th:object="${produto}" method="POST">
+					<input type="hidden" id="id"  th:field="*{id}">
+					<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+					<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+					<input type="text" th:field="*{cor}" placeholder="Cor" class="form-control mb-4 col-4">
+					<span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}" class="text-danger"></span>
+					<input type="text" th:field="*{preco}" placeholder="Preço" class="form-control mb-4 col-4">
+					<input type="text" th:field="*{descricao}" placeholder="Descrição" class="form-control mb-4 col-4">
+					
+					<button type="submit" class="btn btn-info col-2">Salvar</button>
+					</form>
+					<hr>
+					<a th:href="@{/comercial/produtos}">Retornar para a lista de produtos</a>
+			</div>
+</body>
+</html>
