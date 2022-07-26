@@ -2,6 +2,7 @@ package org.br.senai.sc.ecommerce.comercial.controle;
 
 import javax.validation.Valid;
 
+import org.br.senai.sc.ecommerce.comercial.dominio.DepartamentoRepositorio;
 import org.br.senai.sc.ecommerce.comercial.dominio.Produto;
 import org.br.senai.sc.ecommerce.comercial.dominio.ProdutoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,13 @@ public class ProdutoControle {
 		
 		@Autowired
 		private ProdutoRepositorio produtoRepo;
+		private DepartamentoRepositorio departamentoRepo;
+		
+		public ProdutoControle(ProdutoRepositorio produtoRepo, DepartamentoRepositorio departamentoRepo) {
+			this.produtoRepo = produtoRepo;
+			this.departamentoRepo = departamentoRepo;
+			
+		}
 	
 	
 		@GetMapping("/comercial/produtos")
@@ -28,7 +36,9 @@ public class ProdutoControle {
 		}
 
 		@GetMapping("/comercial/produtos/novo")
-		public String novoProduto(@ModelAttribute("produto") Produto produto) {
+		public String novoProduto(Model model) {
+			model.addAttribute("produto", new Produto(""));
+			model.addAttribute("departamentos", departamentoRepo.findAll());
 			return "comercial/produtos/form";
 		}
 		
@@ -39,13 +49,15 @@ public class ProdutoControle {
 				throw new IllegalArgumentException("Produto inválido!");
 			}
 			model.addAttribute("produto", produtoOpt.get());
+			model.addAttribute("departamentos", departamentoRepo.findAll());
 			return "comercial/produtos/form";
 		}
 		
 		@PostMapping("/comercial/produtos/salvar")
-		public String salvarProduto(@Valid @ModelAttribute("produto") Produto produto, BindingResult bindingResult) {
+		public String salvarProduto(@Valid @ModelAttribute("produto") Produto produto, BindingResult bindingResult, Model model) {
 			
 			if(bindingResult.hasErrors()) {
+				model.addAttribute("departamentos", departamentoRepo.findAll());
 				return "comercial/produtos/form";
 			}
 			

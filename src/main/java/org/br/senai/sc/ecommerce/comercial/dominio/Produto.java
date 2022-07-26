@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -30,6 +31,9 @@ public class Produto {
 		
 		
 		private String descricao;
+		
+		@ManyToOne(optional = false)
+		private Departamento departamento;
 		
 		@Deprecated
 		protected Produto() {}
@@ -88,6 +92,15 @@ public class Produto {
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
 		}
+
+		public Departamento getDepartamento() {
+			return departamento;
+		}
+
+		public void setDepartamento(Departamento departamento) {
+			this.departamento = departamento;
+		}
+		
 		
 		
 		
