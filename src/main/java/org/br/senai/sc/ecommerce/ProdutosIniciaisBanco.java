@@ -6,8 +6,12 @@ import org.br.senai.sc.ecommerce.comercial.dominio.Departamento;
 import org.br.senai.sc.ecommerce.comercial.dominio.DepartamentoRepositorio;
 import org.br.senai.sc.ecommerce.comercial.dominio.Produto;
 import org.br.senai.sc.ecommerce.comercial.dominio.ProdutoRepositorio;
+import org.br.senai.sc.ecommerce.seguranca.dominio.Role;
+import org.br.senai.sc.ecommerce.seguranca.dominio.Usuario;
+import org.br.senai.sc.ecommerce.seguranca.dominio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,6 +23,13 @@ public class ProdutosIniciaisBanco implements CommandLineRunner {
 	
 	@Autowired
 	private DepartamentoRepositorio departamentoRepo;
+	
+	@Autowired
+	private UsuarioRepositorio usuarioRepo;
+	
+	@Autowired
+	public PasswordEncoder encoder;
+	
 	
 	@Override
 	public void run(String...args) throws Exception{
@@ -44,10 +55,11 @@ public class ProdutosIniciaisBanco implements CommandLineRunner {
 		produtoRepo.save(p1);
 		produtoRepo.save(p2);
 		
+		Usuario user1 = new Usuario();
+		user1.setUsername("administrator");
+		user1.setPassword(encoder.encode("administrator"));
+		user1.setRole(Role.ADMIN.getNome());
 		
+		usuarioRepo.save(user1);
 	}
-	
-	
-	
-	
 }
