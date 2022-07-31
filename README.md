@@ -52,38 +52,54 @@ Project Explorer do Eclipse.
 
 ## Telas da aplicação
 
-### Tela de de login do administrador: disponível em http://localhost:8080/comercial/produtos (Esta tela irá inicialmente ser redirecionada para a tela de login)
+### Tela de de login do administrador disponível em: http://localhost:8080/comercial/produtos (Esta tela irá inicialmente ser redirecionada para a tela de login)
 
 ![Tela01](https://user-images.githubusercontent.com/53625782/182045307-302fde11-3def-45df-a166-5bcae7d4c7b6.png)
 
 Para logar, o nome do usuário e senha são: *administrator*
 
-### Tela de listagem de produtos iniciais cadastrados: disponível em http://localhost:8080/comercial/produtos
+
+
+### Tela de listagem de produtos iniciais cadastrados disponível em: http://localhost:8080/comercial/produtos
 
 ![Tela02](https://user-images.githubusercontent.com/53625782/182045836-f5cd14b9-e82c-43e2-ae9e-e86319754149.png)
 
 
-### Tela de inclusão de novos produtos: disponível em http://localhost:8080/comercial/produtos/novo (esta tela permite a selecão de um departamento do produto, no último campo do formulário através do menu drop-down.
+
+
+### Tela de inclusão de novos produtos disponível em: http://localhost:8080/comercial/produtos/novo (esta tela permite a selecão de um departamento do produto, no último campo do formulário através do menu drop-down.)
 
 ![Tela03](https://user-images.githubusercontent.com/53625782/182045988-6c2d2aae-5ec4-4eeb-9a71-5a5a35e34cfa.png)
 
 
-### Tela de alteração de produtos: exemplo do item "Boné", disponível em http://localhost:8080/comercial/produtos/3 
+
+
+### Tela de alteração de produtos: exemplo do item "Boné", disponível em: http://localhost:8080/comercial/produtos/3 
 
 ![Tela04](https://user-images.githubusercontent.com/53625782/182046409-99875e4f-f445-4804-b8bb-327ebedc484b.png)
+
+
 
 
 ### Demonstrando a exclusão de algum item na tela principal, clicando em Exluir o Boné:
 
 ![Tela05](https://user-images.githubusercontent.com/53625782/182046493-9243dc57-785e-4ad8-9e6c-68b434c458f4.png)
 
-Após a exlusão: 
+
+
+### Após a exlusão: 
 
 ![Tela06](https://user-images.githubusercontent.com/53625782/182046570-ef9d4bfb-bcb8-44a9-b88a-38467ad00794.png)
+
+
+
 
 ### Visualização da persistência de dados no MySQL usando o MySQL Workbench:
 
 ![Tela07](https://user-images.githubusercontent.com/53625782/182046621-49749e6f-f1e8-4e94-8617-de44f99a3b33.png)
+
+
+
 
 ### Diagrama de entidade relacionamento 
 
